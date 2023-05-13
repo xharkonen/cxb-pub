@@ -1,0 +1,21 @@
+name: Lighthouse CI
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "22 * * * *"
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: browser-actions/setup-chrome@v1
+      - run: chrome --version
+      - uses: actions/checkout@v3
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://www.conexionberlin.com/
+          budgetPath: ./budget.json # test performance budgets
+          uploadArtifacts: false # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary
+          runs: 3
