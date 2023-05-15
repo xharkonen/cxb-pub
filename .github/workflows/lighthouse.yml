@@ -15,6 +15,8 @@ jobs:
         with:
           urls: |
             https://www.conexionberlin.com/
+            https://www.conexionberlin.com/ba/juego/23oy/7-Wonders/
+            https://beta.conexionberlin.com/
           budgetPath: ./budget.json # test performance budgets
           uploadArtifacts: false # save results as an action artifacts
           temporaryPublicStorage: true # upload lighthouse report to the temporary
